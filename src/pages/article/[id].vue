@@ -500,10 +500,49 @@ const initializeExtraFeatures = async () => {
     if (mermaidModule?.default) {
       mermaidModule.default.initialize({
         startOnLoad: false,
-        theme: 'default',
+        theme: 'base',
         securityLevel: 'loose',
+        themeVariables: {
+          primaryColor: '#e1f5fe',
+          primaryTextColor: '#000000',
+          primaryBorderColor: '#1976d2',
+          lineColor: '#1976d2',
+          secondaryColor: '#f3e5f5',
+          tertiaryColor: '#e8f5e8',
+          background: '#ffffff',
+          mainBkg: '#e1f5fe',
+          secondBkg: '#f3e5f5',
+          tertiaryBkg: '#e8f5e8',
+          edgeLabelBackground: '#ffffff',
+          nodeTextColor: '#000000',
+          sectionBkgColor: '#f5f5f5',
+          altSectionBkgColor: '#eeeeee',
+          gridColor: '#cccccc',
+          cScale0: '#1976d2',
+          cScale1: '#42a5f5',
+          cScale2: '#9c27b0',
+        },
         flowchart: {
-          htmlLabels: true,
+          htmlLabels: false,
+          useMaxWidth: true,
+          curve: 'basis',
+        },
+        sequence: {
+          diagramMarginX: 50,
+          diagramMarginY: 10,
+          actorMargin: 50,
+          width: 150,
+          height: 65,
+          boxMargin: 10,
+          boxTextMargin: 5,
+          noteMargin: 10,
+          messageMargin: 35,
+          mirrorActors: true,
+          bottomMarginAdj: 1,
+          useMaxWidth: true,
+        },
+        gantt: {
+          useMaxWidth: true,
         },
       })
 
@@ -568,16 +607,68 @@ const renderMermaidCharts = async () => {
 
         if (graphDefinition.trim()) {
           try {
+            // 清空元素內容
+            element.innerHTML = ''
+
             const uniqueId = `mermaid-${i}-${Date.now()}`
+
+            // 使用新的渲染方式
             const { svg } = await window.mermaidInstance.render(uniqueId, graphDefinition.trim())
+
+            // 設置 SVG 內容
             element.innerHTML = svg
+
+            // 確保文字可見並修復跑版
+            const svgElement = element.querySelector('svg')
+            if (svgElement) {
+              // 修復 SVG 尺寸問題
+              svgElement.style.maxWidth = '100%'
+              svgElement.style.height = 'auto'
+              svgElement.style.width = '100%'
+              svgElement.style.display = 'block'
+              svgElement.removeAttribute('width')
+              svgElement.removeAttribute('height')
+
+              // 設定字體
+              svgElement.style.fontFamily = 'Arial, sans-serif'
+              svgElement.style.fontSize = '14px'
+
+              // 確保所有文字元素可見
+              const textElements = svgElement.querySelectorAll('text, .label, foreignObject div')
+              textElements.forEach((textEl) => {
+                textEl.style.fill = '#000000'
+                textEl.style.fontSize = '14px'
+                textEl.style.fontFamily = 'Arial, sans-serif'
+                textEl.style.color = '#000000'
+              })
+
+              // 設定 viewBox 以確保響應式
+              try {
+                if (!svgElement.getAttribute('viewBox')) {
+                  const bbox = svgElement.getBBox()
+                  if (bbox && bbox.width && bbox.height) {
+                    // 添加一些 padding 避免邊緣被裁切
+                    const padding = 10
+                    const viewBoxWidth = bbox.width + padding * 2
+                    const viewBoxHeight = bbox.height + padding * 2
+                    svgElement.setAttribute(
+                      'viewBox',
+                      `${bbox.x - padding} ${bbox.y - padding} ${viewBoxWidth} ${viewBoxHeight}`,
+                    )
+                  }
+                }
+              } catch (e) {
+                console.warn('ViewBox calculation failed:', e)
+              }
+            }
           } catch (renderError) {
+            console.error('Mermaid render error:', renderError)
             element.innerHTML = `<div class="mermaid-error">圖表渲染失敗: ${renderError.message}</div>`
           }
         }
       }
     } catch (error) {
-      // Silent error handling
+      console.warn('Mermaid rendering failed:', error)
     }
   }
 }
@@ -921,11 +1012,60 @@ watch(article, async () => {
 /* Mermaid 圖表樣式 */
 .article-content :deep(.mermaid) {
   text-align: center !important;
-  margin: 20px 0 !important;
-  background: #f8f9fa !important;
-  padding: 20px !important;
+  margin: 20px auto !important;
+  background: #ffffff !important;
+  padding: 15px !important;
   border-radius: 8px !important;
   border: 1px solid #e9ecef !important;
+  overflow: visible !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.article-content :deep(.mermaid p) {
+  margin: 0 !important;
+}
+
+.article-content :deep(.mermaid svg) {
+  max-width: 100% !important;
+  width: auto !important;
+  max-height: 400px !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+  font-family: 'Arial', 'Helvetica', sans-serif !important;
+}
+
+.article-content :deep(.mermaid .label) {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+.article-content :deep(.mermaid .node rect),
+.article-content :deep(.mermaid .node circle),
+.article-content :deep(.mermaid .node ellipse),
+.article-content :deep(.mermaid .node polygon) {
+  stroke-width: 2px !important;
+}
+
+.article-content :deep(.mermaid .flowchart-link) {
+  stroke: #1976d2 !important;
+  stroke-width: 2px !important;
+}
+
+.article-content :deep(.mermaid .edgePath .path) {
+  stroke: #000000 !important;
+  stroke-width: 1px !important;
+}
+
+.article-content :deep(.mermaid .edgeLabel) {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.article-content :deep(.mermaid text) {
+  fill: #000000 !important;
+  font-size: 14px !important;
+  font-family: 'Arial', 'Helvetica', sans-serif !important;
 }
 
 .article-content :deep(.mermaid-error) {

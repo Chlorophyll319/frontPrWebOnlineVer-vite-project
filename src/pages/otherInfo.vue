@@ -10,7 +10,7 @@ meta:
 <template>
   <!-- 資料庫內容待新增 -->
   <div class="bg-base-200/50">
-    <div class="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
+    <div class="px-3 py-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
       <!-- 頁面標題 -->
       <div class="text-center mb-12">
         <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">你想知道的那些事</h2>
@@ -56,7 +56,59 @@ meta:
 
       <!-- Content -->
       <div v-else>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 其他連結區塊 - 手機/平板版 -->
+        <div class="block lg:hidden mb-8 text-center">
+          <div class="divider">其他連結</div>
+          <div class="flex flex-col justify-center items-center gap-4 mt-6">
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <div
+                  class="animate-bounce bg-primary text-primary-content px-3 py-1 rounded-full text-sm font-semibold -rotate-6 shadow-lg"
+                >
+                  較推薦使用，班級導師看到會即時回應
+                </div>
+              </div>
+              <button class="btn btn-primary text-sm px-3 py-2">
+                <a
+                  href="https://discord.com/invite/TrerFKG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >官方 Discord 連結</a
+                >
+              </button>
+            </div>
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <div
+                  class="animate-bounce bg-secondary text-secondary-content px-3 py-1 rounded-full text-sm font-semibold -rotate-6 shadow-lg"
+                >
+                  泰山職訓局的官方網站！
+                </div>
+              </div>
+              <button class="btn btn-secondary text-sm px-3 py-2">
+                <a href="https://wdaweb.github.io/" target="_blank" rel="noopener noreferrer"
+                  >前端班官方網站</a
+                >
+              </button>
+            </div>
+            <div class="tooltip">
+              <div class="tooltip-content">
+                <div
+                  class="animate-bounce bg-accent text-accent-content px-3 py-1 rounded-full text-sm font-semibold -rotate-6 shadow-lg"
+                >
+                  有任何問題可以放在這裡但可能不會即時回應
+                </div>
+              </div>
+              <button class="btn btn-accent text-sm px-3 py-2">
+                <a href="https://my.cbox.ws/moreQA" target="_blank" rel="noopener noreferrer"
+                  >非官方 Cbox 留言區</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <!-- 使用 v-for 動態生成卡片 -->
           <div
             v-for="category in infoCategories"
@@ -80,8 +132,8 @@ meta:
           </div>
         </div>
 
-        <!-- 其他連結區塊 -->
-        <div class="mt-12 text-center">
+        <!-- 其他連結區塊 - 電腦版 -->
+        <div class="hidden lg:block mt-12 text-center">
           <div class="divider">其他連結</div>
           <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
             <div class="tooltip">
@@ -92,7 +144,7 @@ meta:
                   較推薦使用，班級導師看到會即時回應
                 </div>
               </div>
-              <button class="btn btn-primary">
+              <button class="btn btn-primary text-sm px-3 py-2">
                 <a
                   href="https://discord.com/invite/TrerFKG"
                   target="_blank"
@@ -109,7 +161,7 @@ meta:
                   泰山職訓局的官方網站！
                 </div>
               </div>
-              <button class="btn btn-secondary">
+              <button class="btn btn-secondary text-sm px-3 py-2">
                 <a href="https://wdaweb.github.io/" target="_blank" rel="noopener noreferrer"
                   >前端班官方網站</a
                 >
@@ -123,7 +175,7 @@ meta:
                   有任何問題可以放在這裡但可能不會即時回應
                 </div>
               </div>
-              <button class="btn btn-accent">
+              <button class="btn btn-accent text-sm px-3 py-2">
                 <a href="https://my.cbox.ws/moreQA" target="_blank" rel="noopener noreferrer"
                   >非官方 Cbox 留言區</a
                 >

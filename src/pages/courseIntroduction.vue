@@ -44,7 +44,7 @@ meta:
 
           <!-- 主標題 -->
           <div class="space-y-6 animate-fade-in-up delay-200">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight">
               <span class="text-base-content">半年紮實訓練</span><br />
               <span
                 class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
@@ -189,7 +189,7 @@ meta:
       </div>
 
       <!-- Content -->
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div v-else class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         <div
           v-for="(module, index) in modules"
           :key="module._id"
@@ -303,23 +303,44 @@ meta:
     <!-- 比較表 -->
     <div>
       <h3 class="text-2xl lg:text-3xl font-bold text-center mb-8">與坊間課程比較</h3>
-      <div class="overflow-x-auto">
+      
+      <!-- 桌面版表格 -->
+      <div class="hidden md:block overflow-x-auto">
         <table class="table w-full shadow-lg">
           <thead>
             <tr>
-              <th>比較項目</th>
-              <th class="text-primary">泰山職訓局前端班</th>
-              <th>坊間前端課程</th>
+              <th class="text-base">比較項目</th>
+              <th class="text-primary text-base">泰山職訓局前端班</th>
+              <th class="text-base">坊間前端課程</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="item in comparisonData" :key="item.feature">
-              <th>{{ item.feature }}</th>
-              <td>{{ item.wda }}</td>
-              <td>{{ item.others }}</td>
+              <th class="text-sm font-semibold">{{ item.feature }}</th>
+              <td class="text-sm">{{ item.wda }}</td>
+              <td class="text-sm">{{ item.others }}</td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- 手機版卡片式顯示 -->
+      <div class="md:hidden space-y-4">
+        <div v-for="item in comparisonData" :key="item.feature" class="card bg-base-100 shadow-lg">
+          <div class="card-body p-4">
+            <h4 class="card-title text-lg mb-3 text-center">{{ item.feature }}</h4>
+            <div class="grid grid-cols-1 gap-3">
+              <div class="p-3 bg-primary/10 rounded-lg">
+                <div class="text-xs font-semibold text-primary mb-1">泰山職訓局前端班</div>
+                <div class="text-sm text-base-content">{{ item.wda }}</div>
+              </div>
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="text-xs font-semibold text-base-content/70 mb-1">坊間前端課程</div>
+                <div class="text-sm text-base-content">{{ item.others }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

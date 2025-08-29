@@ -28,7 +28,7 @@ meta:
           <!-- 起：點出使用者狀態 -->
           <div class="space-y-2">
             <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-base-content leading-tight sm:mb-[10%] md:mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-base-content leading-tight sm:mb-[10%] md:mb-6"
             >
               有時候人生就是會<br class="hidden md:block" />
               <span
@@ -345,8 +345,8 @@ meta:
       <!-- My Story Section -->
       <section id="story" class="mb-16 lg:mb-24">
         <div class="text-center mb-12">
-          <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">為什麼想做這個網站？</h2>
-          <p class="text-lg text-base-content/70 mb-6">做這個網站的契機，其實來自一次閒聊…</p>
+          <h2 class="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-primary mb-4">為什麼想做這個網站？</h2>
+          <p class="text-lg xl:text-xl 2xl:text-2xl text-base-content/70 mb-6">做這個網站的契機，其實來自一次閒聊…</p>
           <div class="divider divider-primary w-24 mx-auto"></div>
           <!-- 情感式敘事內容 -->
           <div class="story-content max-w-4xl mx-auto">
@@ -357,7 +357,7 @@ meta:
                 class="story-paragraph mb-8 opacity-0 animate-fade-in"
                 style="animation-delay: 0.2s"
               >
-                <p class="text-base-content/90 leading-relaxed lg:text-lg">
+                <p class="text-base-content/90 leading-relaxed lg:text-lg xl:text-xl 2xl:text-2xl">
                   我做這個網站的契機，其實來自一次閒聊。當時聽老師說，下期的招生情況不太理想。我一邊覺得可惜，一邊也想起自己在轉職初期那段既迷茫又焦慮的日子。
                 </p>
               </div>
@@ -367,7 +367,7 @@ meta:
                 class="story-paragraph mb-8 opacity-0 animate-fade-in"
                 style="animation-delay: 0.4s"
               >
-                <p class="text-base-content/90 leading-relaxed lg:text-lg">
+                <p class="text-base-content/90 leading-relaxed lg:text-lg xl:text-xl 2xl:text-2xl">
                   我本來是設計科班出身。剛離職時，原本的計畫是想轉職成 UI/UX
                   設計師，但怎麼學都學不太起來；同時，我也不想回到那種「行銷設計一人多工、薪水又少」的狀態。很快我就發現線上課程不適合我——我的自制力不強，沒有人陪跑時，很難撐過每個卡關。
                 </p>
@@ -378,7 +378,7 @@ meta:
                 class="story-paragraph mb-8 opacity-0 animate-fade-in"
                 style="animation-delay: 0.6s"
               >
-                <p class="text-base-content/90 leading-relaxed lg:text-lg">
+                <p class="text-base-content/90 leading-relaxed lg:text-lg xl:text-xl 2xl:text-2xl">
                   現實壓力也在。父母一直催我趕快找工作，我自己也覺得喘不過氣；想出來走走轉換一下，卻又沒什麼錢。後來經過朋友推薦，我注意到這堂政府職訓課。這門課不但免費，還有生活費補助，對剛離職、手頭緊的我來說是一個剛剛好的選項。加上外縣市學生可以住宿、課程是實體上課，剛好也解決了「想換個環境卻沒錢」的問題。
                 </p>
               </div>
@@ -388,7 +388,7 @@ meta:
                 class="story-paragraph mb-8 opacity-0 animate-fade-in"
                 style="animation-delay: 0.8s"
               >
-                <p class="text-base-content/90 leading-relaxed lg:text-lg">
+                <p class="text-base-content/90 leading-relaxed lg:text-lg xl:text-xl 2xl:text-2xl">
                   老實說，當時我的心態蠻佛系的，並不是立志一定要成為工程師，而是覺得：在可承受的範圍內試試看也好。就算最後還是回到
                   UI/UX，懂一些前端的語言與限制，也會是加分。
                 </p>
@@ -399,7 +399,7 @@ meta:
                 class="story-paragraph mb-8 opacity-0 animate-fade-in"
                 style="animation-delay: 1s"
               >
-                <p class="text-base-content/90 leading-relaxed lg:text-lg">
+                <p class="text-base-content/90 leading-relaxed lg:text-lg xl:text-xl 2xl:text-2xl">
                   一開始我其實沒打算很投入，只想抱著「學得會很好，學不會也沒損失」的心態來試試看。再加上那位推薦我來的朋友還跟我說，他會幫我寫作業。結果課程不到一個月，他就跑去談戀愛了，留下我自己面對滿滿的進度。也因為這樣，我不得不硬著頭皮跟上，反而意外找回了投入感。
                 </p>
               </div>
@@ -422,7 +422,7 @@ meta:
                 <div class="relative">
                   <div class="text-6xl text-primary/15 mb-4">"</div>
                   <blockquote
-                    class="text-xl lg:text-2xl text-primary/90 font-medium leading-relaxed px-4 relative"
+                    class="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-primary/90 font-medium leading-relaxed px-4 relative"
                   >
                     這個網站不是招生頁，也不是技術炫耀，而是我想從過來人的角度，整理出當初我最想知道、卻到處找不到的資訊。希望現在正迷惘的你，可以在這裡找到一點安心，陪你撐過那個最難判斷方向的時候。
                   </blockquote>
@@ -584,7 +584,7 @@ meta:
           <div class="divider divider-primary w-24 mx-auto"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           <div
             class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
@@ -733,8 +733,8 @@ meta:
                 <button @click="scrollTo('#faq-section')" class="btn btn-primary btn-lg">
                   查看完整 FAQ
                 </button>
-                <RouterLink to="/quiz" class="btn btn-outline btn-primary btn-lg">
-                  做適性測驗
+                <RouterLink to="/howToSignUp" class="btn btn-outline btn-primary btn-lg">
+                  查看報名流程
                 </RouterLink>
               </div>
             </div>
@@ -752,7 +752,7 @@ meta:
         </div>
 
         <!-- 這個區塊，想要用 bento grid 風 -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mx-auto">
           <div
             class="card bg-gradient-to-br from-primary/20 to-primary/5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
           >
@@ -843,7 +843,7 @@ meta:
           <div class="divider divider-primary w-24 mx-auto"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <div
             v-for="mod in modulesUi"
             :key="mod._id"
@@ -864,7 +864,7 @@ meta:
       </section>
 
       <!-- Student Projects -->
-      <section id="projects-showcase" class="mb-24 m-auto px-4 max-w-7xl">
+      <section id="projects-showcase" class="mb-24 m-auto px-4 max-w-7xl justify-center">
         <div class="text-center mb-12">
           <h2 class="text-4xl font-bold text-primary mb-4">學員成果精選</h2>
           <p class="text-lg text-base-content/70">看看跟你一樣在起點的人，做出了什麼</p>
@@ -873,7 +873,7 @@ meta:
 
         <div class="carousel carousel-center max-w-full p-4 space-x-4 bg-base-200 rounded-box">
           <div v-for="proj in projectsUi" :key="proj._id" class="carousel-item">
-            <div class="card w-80 bg-base-100 shadow-xl">
+            <div class="card w-auto min-w-64 max-w-sm bg-base-100 shadow-xl">
               <figure class="px-6 pt-6">
                 <img
                   :src="proj.imageUrl"
