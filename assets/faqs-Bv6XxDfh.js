@@ -1,1 +1,0 @@
-import{B as s}from"./index-3je6mOWM.js";const{api:a,apiAuth:e}=s,f={get(){return a.get("/faqs")},getId(t){return a.get(`/faqs/${t}`)},getAll(){return e.get("/faqs/all")},create(t){return e.post("/faqs",t)},update(t,r){return e.patch(`/faqs/${t}`,r)}};export{f};
