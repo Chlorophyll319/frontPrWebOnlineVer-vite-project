@@ -9,24 +9,26 @@ meta:
 <template>
   <div class="space-y-6">
     <!-- 標題 -->
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold text-gray-900">部落格文章內容管理</h1>
-        <p class="text-gray-600 mt-2">管理所有部落格項目</p>
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+      <div class="flex-1">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">部落格文章內容管理</h1>
+        <p class="text-sm sm:text-base text-gray-600 mt-1 sm:mt-2">管理所有部落格項目</p>
       </div>
       <Button
-        label="新增模組"
+        label="新增文章"
         icon="pi pi-plus"
         severity="primary"
         @click="onAdd()"
         id="newModuleButton"
+        size="small"
+        class="w-full sm:w-auto"
       />
     </div>
 
     <!-- 搜尋與篩選 -->
     <Card class="shadow-sm">
       <template #content>
-        <div class="flex gap-4 items-center">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
           <div class="flex-1">
             <label for="searchModules" class="sr-only">搜尋文章</label>
             <span class="p-input-icon-left w-full">
@@ -39,7 +41,7 @@ meta:
               />
             </span>
           </div>
-          <div>
+          <div class="sm:w-48">
             <Select
               id="categoryFilter"
               name="categoryFilter"
@@ -49,7 +51,7 @@ meta:
               optionValue="value"
               placeholder="選擇分類"
               showClear
-              class="w-48"
+              class="w-full"
             />
           </div>
         </div>
@@ -159,8 +161,8 @@ meta:
       v-model:visible="showDialog"
       :header="editingBlog ? '編輯部落格' : '新增部落格'"
       modal
-      class="p-fluid"
-      style="width: 38rem"
+      class="p-fluid w-[95vw] sm:w-[38rem] max-w-4xl"
+      :dismissableMask="true"
     >
       <div class="rounded-xl bg-white/60 backdrop-blur p-4 space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">

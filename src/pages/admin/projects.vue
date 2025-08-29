@@ -9,10 +9,10 @@ meta:
 <template>
   <div class="space-y-6">
     <!-- 標題 -->
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold text-gray-900">學員專題管理</h1>
-        <p class="text-gray-600 mt-2">管理學員專題展示項目</p>
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+      <div class="flex-1">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">學員專題管理</h1>
+        <p class="text-sm sm:text-base text-gray-600 mt-1 sm:mt-2">管理學員專題展示項目</p>
       </div>
       <Button
         label="新增專題"
@@ -20,13 +20,15 @@ meta:
         severity="primary"
         @click="onAdd()"
         id="newProjectButton"
+        size="small"
+        class="w-full sm:w-auto"
       />
     </div>
 
     <!-- 搜尋與篩選 -->
     <Card class="shadow-sm">
       <template #content>
-        <div class="flex gap-4 items-center">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
           <div class="flex-1">
             <label for="searchProjects" class="sr-only">搜尋專題</label>
             <span class="p-input-icon-left w-full">
@@ -39,7 +41,7 @@ meta:
               />
             </span>
           </div>
-          <div>
+          <div class="sm:w-48">
             <Select
               id="statusFilter"
               name="statusFilter"
@@ -49,7 +51,7 @@ meta:
               optionValue="value"
               placeholder="選擇狀態"
               showClear
-              class="w-48"
+              class="w-full"
             />
           </div>
         </div>

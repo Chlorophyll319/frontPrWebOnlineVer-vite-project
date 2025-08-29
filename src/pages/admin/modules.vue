@@ -9,10 +9,10 @@ meta:
 <template>
   <div class="space-y-6">
     <!-- 標題 -->
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold text-gray-900">課程模組管理</h1>
-        <p class="text-gray-600 mt-2">管理所有課程模組項目</p>
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+      <div class="flex-1">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">課程模組管理</h1>
+        <p class="text-sm sm:text-base text-gray-600 mt-1 sm:mt-2">管理所有課程模組項目</p>
       </div>
       <Button
         label="新增模組"
@@ -20,13 +20,15 @@ meta:
         severity="primary"
         @click="onAdd()"
         id="newModuleButton"
+        size="small"
+        class="w-full sm:w-auto"
       />
     </div>
 
     <!-- 搜尋與篩選 -->
     <Card class="shadow-sm">
       <template #content>
-        <div class="flex gap-4 items-center">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
           <div class="flex-1">
             <label for="searchModules" class="sr-only">搜尋模組</label>
             <span class="p-input-icon-left w-full">
@@ -39,7 +41,7 @@ meta:
               />
             </span>
           </div>
-          <div>
+          <div class="sm:w-48">
             <Select
               id="statusFilter"
               name="statusFilter"
@@ -49,7 +51,7 @@ meta:
               optionValue="value"
               placeholder="選擇狀態"
               showClear
-              class="w-48"
+              class="w-full"
             />
           </div>
         </div>
@@ -152,8 +154,8 @@ meta:
       v-model:visible="showDialog"
       :header="editingModule ? '編輯模組' : '新增模組'"
       modal
-      class="p-fluid"
-      style="width: 38rem"
+      class="p-fluid w-[95vw] sm:w-[38rem] max-w-4xl"
+      :dismissableMask="true"
       :pt="{
         content: { class: 'max-h-[70dvh] overflow-y-auto' },
         footer: { class: 'mt-4 sm:mt-6 pt-4 border-t border-gray-200/80 bg-white sticky bottom-0' },

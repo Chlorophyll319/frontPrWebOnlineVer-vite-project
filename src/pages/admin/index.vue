@@ -19,7 +19,7 @@ meta:
     <Card class="shadow-sm">
       <template #title>
         <div class="flex align-items-center gap-3">
-          <i class="pi pi-home text-2xl text-blue-900"></i>
+          <i class="pi pi-home text-2xl text-green-900"></i>
           <span class="text-xl font-semibold">歡迎來到後台管理系統</span>
         </div>
       </template>
@@ -27,13 +27,13 @@ meta:
         <p class="text-gray-700 mb-4">
           您可以從上方的導覽列開始，或點擊下方的快速按鈕來管理網站內容。
         </p>
-        <div class="flex flex-wrap gap-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-3">
           <Button
             v-for="nav in quickNavs"
             :key="nav.label"
             :label="nav.label"
             :icon="`pi ${nav.icon}`"
-            :class="nav.class"
+            :class="[nav.class, 'text-sm']"
             @click="$router.push(nav.to)"
           />
         </div>
@@ -87,7 +87,7 @@ const quickNavs = ref([
   {
     label: '學員成果管理',
     icon: 'pi-briefcase',
-    class: 'bg-blue-600 hover:bg-blue-900 border-blue-950',
+    class: 'bg-green-600 hover:bg-green-900 border-green-950',
     to: '/admin/projects',
   },
   {
@@ -115,8 +115,8 @@ const stats = ref([
     title: '學員成果總數',
     count: 0,
     icon: 'pi-briefcase',
-    textColor: 'text-blue-600',
-    iconColor: 'text-blue-200',
+    textColor: 'text-green-600',
+    iconColor: 'text-green-200',
     to: '/admin/projects',
     error: false,
     service: projectsService.getAll,
