@@ -8,6 +8,14 @@ import { useUserStore } from '@/stores/user'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(routes),
+  scrollBehavior(to, from, savedPosition) {
+    // 如果有儲存的位置 (瀏覽器前進/後退)，使用儲存的位置
+    if (savedPosition) {
+      return savedPosition
+    }
+    // 否則捲動到頂部
+    return { top: 0 }
+  },
 })
 
 router.beforeEach(async (to, from, next) => {
