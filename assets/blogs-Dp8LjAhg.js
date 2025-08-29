@@ -1,0 +1,1 @@
+import{B as g}from"./index-DOOoLRTr.js";const{api:r,apiAuth:e}=g,s={get(){return r.get("/blogs")},getId(t){return r.get(`/blogs/${t}`)},getAll(){return e.get("/blogs/all")},create(t){return e.post("/blogs",t)},update(t,o){return e.patch(`/blogs/${t}`,o)}};export{s as b};
