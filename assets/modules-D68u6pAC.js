@@ -1,1 +1,0 @@
-import{B as o}from"./index-3je6mOWM.js";const{api:r,apiAuth:t}=o,s={get(){return r.get("/modules")},getId(e){return r.get(`/modules/${e}`)},getAll(){return t.get("/modules/all")},create(e){return t.post("/modules",e)},update(e,u){return t.patch(`/modules/${e}`,u)}};export{s as m};
