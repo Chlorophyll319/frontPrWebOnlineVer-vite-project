@@ -13,10 +13,12 @@ const md = new MarkdownIt({
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre><code class="hljs language-${lang}">${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`
-      } catch (__) {}
+      } catch (error) {
+        console.log(error)
+      }
     }
     return `<pre><code class="hljs">${md.utils.escapeHtml(str)}</code></pre>`
-  }
+  },
 })
 
 // 動態加載插件
@@ -28,7 +30,7 @@ async function loadPlugins() {
   try {
     // 嘗試加載插件
     const emojiPlugin = await import('markdown-it-emoji')
-    const footnotePlugin = await import('markdown-it-footnote') 
+    const footnotePlugin = await import('markdown-it-footnote')
     const taskListsPlugin = await import('markdown-it-task-lists')
     const tocPlugin = await import('markdown-it-toc-done-right')
 
@@ -39,7 +41,7 @@ async function loadPlugins() {
     md.use(tocPlugin.default || tocPlugin, {
       containerClass: 'toc',
       listType: 'ul',
-      level: [1, 2, 3, 4]
+      level: [1, 2, 3, 4],
     })
 
     pluginsLoaded = true
@@ -52,8 +54,8 @@ async function loadPlugins() {
 export default {
   async render(markdown) {
     if (!markdown) return ''
-    
+
     await loadPlugins()
     return md.render(markdown)
-  }
+  },
 }
