@@ -80,25 +80,19 @@ jobs:
 
 ### 前台展示
 
-> 📸 _截圖區域 - 請新增專案截圖_
+> 📸 \_截圖區域
 
-<!--
-建議新增以下截圖：
-- ![前台首頁](screenshots/frontend-home.png)
-- ![課程介紹頁](screenshots/course-intro.png)
-- ![文章詳情頁](screenshots/article-detail.png)
--->
+- ![前台首頁](https://i.meee.com.tw/4j89Ma7.png)
+- ![課程介紹頁](https://i.meee.com.tw/38KCFu2.png)
+- ![文章詳情頁](https://i.meee.com.tw/aQt8Fvh.png)
 
 ### 後台管理
 
-> 📸 _截圖區域 - 請新增管理後台截圖_
+> 📸 \_截圖區域
 
-<!--
-建議新增以下截圖：
-- ![後台登入](screenshots/admin-login.png)
-- ![後台首頁](screenshots/admin-dashboard.png)
-- ![內容管理](screenshots/admin-content.png)
--->
+- ![後台登入](https://i.meee.com.tw/rr9DoJq.png)
+- ![後台首頁](https://i.meee.com.tw/c5Q3Tcy.png)
+- ![內容管理](https://i.meee.com.tw/r3V0410.png)
 
 ## 系統要求
 
