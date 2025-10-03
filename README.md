@@ -25,6 +25,57 @@
 - **Highlight.js** (11.11.1) - 程式碼高亮
 - **MathJax** (4.0.0) - 數學公式渲染
 
+## 自動化部署
+
+本專案使用 **GitHub Actions** 實現自動化部署到 GitHub Pages。
+
+### 部署流程
+
+當程式碼推送到 `main` 分支時，會自動觸發以下流程：
+
+1. **檢出程式碼** - 從儲存庫複製最新程式碼
+2. **安裝依賴與建構** - 執行 `npm install` 和 `npm run build`
+3. **部署到 GitHub Pages** - 將 `dist` 目錄發佈到 `gh-pages` 分支
+
+### 配置說明
+
+部署配置位於 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+
+```yaml
+name: Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+```
+
+### 環境變數設定
+
+在 GitHub 儲存庫設定中新增以下 Secret：
+
+- `VITE_API_URL` - API 伺服器位址
+
+> 💡 **提示**：前往儲存庫 Settings → Secrets and variables → Actions → New repository secret 進行設定
+
+### 部署狀態
+
+[![Deploy Status](https://github.com/Chlorophyll319/frontPrWebOnlineVer-vite-project/actions/workflows/deploy.yml/badge.svg)](https://github.com/Chlorophyll319/frontPrWebOnlineVer-vite-project/actions/workflows/deploy.yml)
+
 ## 專案預覽
 
 ### 前台展示
